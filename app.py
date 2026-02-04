@@ -75,10 +75,10 @@ if uploaded_file:
 
             st.subheader("Variance Preview")
 
-           # Convert DataFrame to plain Python for safe display
-           display_data = ranked.head(10).astype(str).to_dict("records")
+            # Convert DataFrame to plain Python for safe display
+            display_data = ranked.head(10).astype(str).to_dict("records")
 
-           st.table(display_data)
+            st.table(display_data)
 
 
             # Mocked AI commentary
@@ -98,6 +98,7 @@ Cost pressures were observed in AMER COGS. SG&A remains controlled.
                     file_name=ppt_file,
                     mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
                 )
+
 
 
 
