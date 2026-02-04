@@ -74,7 +74,15 @@ if uploaded_file:
             ranked = run_variance_from_file(uploaded_file)
 
             st.subheader("Variance Preview")
-            st.dataframe(ranked.head(10))
+
+            # Convert all columns to safe display types
+            display_df = ranked.copy()
+
+            for col in display_df.columns:
+                display_df[col] = display_df[col].astype(str)
+
+            st.dataframe(display_df.head(10))
+
 
             # Mocked AI commentary
             commentary = """
@@ -93,4 +101,5 @@ Cost pressures were observed in AMER COGS. SG&A remains controlled.
                     file_name=ppt_file,
                     mime="application/vnd.openxmlformats-officedocument.presentationml.presentation"
                 )
+
 
